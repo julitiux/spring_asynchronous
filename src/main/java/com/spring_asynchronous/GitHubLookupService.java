@@ -1,6 +1,7 @@
 package com.spring_asynchronous;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -13,8 +14,8 @@ public class GitHubLookupService {
 
   private final RestTemplate restTemplate;
 
-  public GitHubLookupService(RestTemplate restTemplate) {
-    this.restTemplate = restTemplate;
+  public GitHubLookupService(RestTemplateBuilder restTemplateBuilder) {
+    this.restTemplate = restTemplateBuilder.build();
   }
 
   @Async
